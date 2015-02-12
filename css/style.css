@@ -42,3 +42,8 @@
 .searchbar-wrapper{
   height:80px;
 }
+
+body {
+  background: url("../img/bg.png");
+  background-size: 100% 100%;
+}
