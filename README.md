@@ -1,5 +1,5 @@
 # home
 
-A minimalistic homepage displaying only a searchbar which triggers a google search. Super simple stuff.
+A minimalistic homepage displaying only a searchbar which triggers a DDG search. Super simple stuff.
 
-![screenshot](screenie.png)
+Funfact: The whole HTML, CSS & JS only has 70 lines.
