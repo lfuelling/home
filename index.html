@@ -1,48 +1,70 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/ripples.min.css" rel="stylesheet">
-    <link href="css/material-wfont.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <title>Startseite</title>
+	<title>Home</title>
+	<style type="text/css">
+		#b {
+			-webkit-transition: background-image 1.2s ease-in-out;
+			transition: background-image 1.2s ease-in-out;
+			background-image: url('/img/bg1.jpeg');
+			background-color: #000;
+			width: 100vw;
+			height: 100vh;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			justify-content: center;
+    		align-items: center;
+		}
+		#q {
+			width: 800px;
+			height: 32px;
+			font-size: 12px;
+			line-height: 32px;
+			vertical-align: middle;
+			background-color: rgba(255,255,255,0.7);
+			border: 1px solid #fff;
+			color: rgba(0,0,0,0.5);
+		}
+		*:focus {
+    		outline: none;
+		}
+		#q:focus {
+			color: #000;
+		}
+	</style>
 </head>
-
-
-
-<body>
-
-<div class="container">
-  <div class="searchbar-wrapper">
-    <div class="vertical-center">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          &nbsp;
-          <form action="https://google.com/search">
-            <input name="q" style="width:800px" class="form-control input-lg" type="text" placeholder="Search" autocomplete="off" autofocus>
-          </form>
-        </div>
-        <div class="panel-footer text-center">
-          <small>Made by <a style="color: #000;" href="http://k40s.net">Lukas F&uuml;lling</a> in 2015</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Bootstrap, JQuery und Materialdesign JavaScript -->
-
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script src="js/ripples.min.js"></script>
-<script src="js/material.min.js"></script>
+<body id="b">
+<form id="qf" action="#">
+<input type="text" name="q" id="q" autofocus="autofocus" autocomplete="false" />
+</form>
 <script>
-    $(document).ready(function () {
-        $.material.init();
-    });
-</script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+var bgc = async function() {
+	var i = 2;
+	while(true) {
+		if(i >= 8) {
+			i = 1;
+		}
+		await sleep(10000);
+		document.getElementById('b').style['background-image']="url('/img/bg" + i + ".jpeg')";
+		console.log('using background ' + i);
+		i++;
+	}
+}
 
+document.addEventListener('DOMContentLoaded', function() {
+	document.getElementById('qf').addEventListener('submit', function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		window.location.href='https://duckduckgo.com/?q=' + document.getElementById('q').value;
+	});
+	bgc();
+});
+</script>
 </body>
 </html>
