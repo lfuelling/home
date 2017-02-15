@@ -4,8 +4,8 @@
 	<title>Home</title>
 	<style type="text/css">
 		#b {
-			-webkit-transition: background-image 3s ease-in-out;
-			transition: background-image 3s ease-in-out;
+			-webkit-transition: background-image 10s ease-in-out;
+			transition: background-image 10s ease-in-out;
 			background-image: url('/img/bg1.jpeg');
 			background-color: #000;
 			width: 100vw;
@@ -50,7 +50,7 @@ var bgc = async function() {
 		if(i >= 8) {
 			i = 1;
 		}
-		await sleep(10000);
+		await sleep(11000);
 		document.getElementById('b').style['background-image']="url('/img/bg" + i + ".jpeg')";
 		console.log('using background ' + i);
 		i++;
